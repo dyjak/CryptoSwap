@@ -1,0 +1,42 @@
+
+
+
+
+h1 {
+    color: #ffffff;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover {
+    background-color: #555;
+}
+
+.support-info{
+    align-items: center;
+    text-align: center;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.support-info p{
+    width: 80%;
+}
+
+

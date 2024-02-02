@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: crypto.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: crypto.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Zmienne reprezentujące saldo użytkownika w różnych kryptowalutach.
+ * @type {number}
+ */
+var myBalanceBTC = 0.8223;
+var myBalanceETH = 1.2535;
+var myBalanceXRP = 200.5426;
+var myBalanceOP = 265.5673;
+var myBalanceAPE = 7679.5673;
+
+/**
+ * Zmienne reprezentujące aktualne ceny kryptowalut.
+ * @type {number}
+ */
+var btcPrice;
+var ethPrice;
+var xrpPrice;
+var opPrice;
+var apePrice;
+
+/**
+ * Funkcja obliczająca łączną wartość portfela użytkownika w dolarach.
+ * @param {number} btcPrice - Aktualna cena Bitcoina.
+ * @param {number} ethPrice - Aktualna cena Ethereum.
+ * @param {number} xrpPrice - Aktualna cena Ripple.
+ * @param {number} opPrice - Aktualna cena Optimism.
+ * @param {number} apePrice - Aktualna cena Apecoin.
+ * @returns {string} - Łączna wartość portfela użytkownika zaokrąglona do 4 miejsc po przecinku.
+ */
+function mybalance(btcPrice, ethPrice, xrpPrice, opPrice, apePrice) {
+    var myBalanceTotal = myBalanceBTC * btcPrice +
+        myBalanceETH * ethPrice +
+        myBalanceXRP * xrpPrice +
+        myBalanceOP * opPrice +
+        myBalanceAPE * apePrice;
+
+    return (Math.round(myBalanceTotal * 100) / 100).toFixed(4);
+}
+
+/**
+ * Funkcja aktualizująca ceny kryptowalut za pomocą zewnętrznego API.
+ */
+function updateCryptoPrices() {
+    // ...
+
+    // Aktualizacja elementów HTML z informacjami o cenach i saldzie.
+    // ...
+
+    // Obsługa błędów.
+    // ...
+}
+
+/**
+ * Nasłuchiwacz na przycisku wymiany kryptowalut.
+ * Sprawdza i wykonuje transakcję, aktualizuje saldo i wyświetla komunikat.
+ */
+var buttonExchange = document.getElementById('submit');
+var checkboxAgree = document.getElementById('agreement');
+
+buttonExchange.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    // Pobranie danych z formularza.
+    // ...
+
+    // Sprawdzenie poprawności wprowadzonych danych.
+    // ...
+
+    // Sprawdzenie zgody użytkownika.
+    // ...
+
+    // Sprawdzenie dostępności środków.
+    // ...
+
+    // Aktualizacja salda po wykonanej transakcji.
+    // ...
+
+    // Resetowanie wartości formularza.
+    resetToDefault();
+
+    // Wyświetlenie komunikatu o udanej transakcji.
+    alert(`Transaction successful!\nConverted ${amountFrom.toFixed(4)} ${currencyFrom.toUpperCase()} to ${amountTo.toFixed(4)} ${currencyTo.toUpperCase()}.`);
+});
+
+/**
+ * Funkcja resetująca wartości formularza do domyślnych.
+ */
+function resetToDefault() {
+    // ...
+}
+
+/**
+ * Funkcja sprawdzająca dostępność środków na koncie użytkownika.
+ * @param {string} currency - Symbol kryptowaluty.
+ * @param {number} amount - Ilość do sprawdzenia.
+ * @returns {boolean} - True, jeśli użytkownik ma wystarczające środki, w przeciwnym razie false.
+ */
+function checkIfAvailible(currency, amount) {
+    // ...
+}
+
+/**
+ * Funkcja aktualizująca wyświetlane salda użytkownika w elemencie HTML.
+ */
+function updateBalances() {
+    // ...
+}</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#arrow">arrow</a></li><li><a href="global.html#blockCurrentCrypto">blockCurrentCrypto</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#btcPrice">btcPrice</a></li><li><a href="global.html#buttonExchange">buttonExchange</a></li><li><a href="global.html#changeSides">changeSides</a></li><li><a href="global.html#checkIfAvailible">checkIfAvailible</a></li><li><a href="global.html#crypto1">crypto1</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#formCur1">formCur1</a></li><li><a href="global.html#inputItems">inputItems</a></li><li><a href="global.html#myBalanceBTC">myBalanceBTC</a></li><li><a href="global.html#mybalance">mybalance</a></li><li><a href="global.html#pageX">pageX</a></li><li><a href="global.html#pageY">pageY</a></li><li><a href="global.html#resetToDefault">resetToDefault</a></li><li><a href="global.html#updateBalances">updateBalances</a></li><li><a href="global.html#updateCrypto1from">updateCrypto1from</a></li><li><a href="global.html#updateCrypto2from">updateCrypto2from</a></li><li><a href="global.html#updateCryptoPrices">updateCryptoPrices</a></li><li><a href="global.html#updateDisplay">updateDisplay</a></li><li><a href="global.html#updateLogos">updateLogos</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jan 29 2024 02:22:22 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

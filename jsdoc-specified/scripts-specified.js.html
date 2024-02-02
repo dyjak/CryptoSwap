@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: scripts-specified.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: scripts-specified.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Zmienna reprezentująca pole wyboru waluty nr 1.
+ * @type {HTMLSelectElement}
+ */
+var formCur1 = document.querySelector('select[name="cur1"]');
+
+/**
+ * Zmienna reprezentująca pole wyboru waluty nr 2.
+ * @type {HTMLSelectElement}
+ */
+var formCur2 = document.querySelector('select[name="cur2"]');
+
+/**
+ * Zmienna reprezentująca pole wprowadzania ilości kryptowaluty nr 1.
+ * @type {HTMLInputElement}
+ */
+var crypto1 = document.querySelector('input[name="crypto-from-value"]');
+
+/**
+ * Zmienna reprezentująca pole wprowadzania ilości kryptowaluty 2.
+ * @type {HTMLInputElement}
+ */
+var crypto2 = document.querySelector('input[name="crypto-to-value"]');
+
+
+/**
+ * Blokuje opcje wyboru dla bieżących kryptowalut na podstawie wyboru walut.
+ * 
+ * Funkcja pobiera informacje o aktualnie wybranych kryptowalutach z pól wyboru.
+ * Następnie, używając pętli forEach, odblokowuje opcje wyboru dla każdej kryptowaluty.
+ * Na końcu blokuje po obu stronach opcje wyboru dla tych kryptowalut, które są już wybrane.
+ * 
+ * @function
+ * @returns {void}
+ */
+function blockCurrentCrypto() {
+    // Pobiera wartości wybranych opcji
+    var val1 = formCur1.value.substring(0, 3) + "1";
+    var val2 = formCur1.value.substring(0, 3) + "2";
+    var val3 = formCur2.value.substring(0, 3) + "1";
+    var val4 = formCur2.value.substring(0, 3) + "2";
+
+    // Pobiera odpowiednie opcje na podstawie wartości
+    var option1 = document.querySelector('option[value="' + val1 + '"]');
+    var option2 = document.querySelector('option[value="' + val2 + '"]');
+    var option3 = document.querySelector('option[value="' + val3 + '"]');
+    var option4 = document.querySelector('option[value="' + val4 + '"]');
+
+    // Pobiera wszystkie opcje
+    var options = document.querySelectorAll('.options');
+
+    // Odblokowuje wszystkie opcje
+    options.forEach(function (option) {
+        if (option != option1 &amp;&amp; option != option2 &amp;&amp; option != option3 &amp;&amp; option != option4) {
+            option.disabled = false;
+        }
+    });
+
+    // Blokuje bieżące opcje
+    option1.disabled = true;
+    option2.disabled = true;
+    option3.disabled = true;
+    option4.disabled = true;
+}
+
+/**
+ * Aktualizuje loga dla wybranej waluty na podstawie jej wartości.
+ * 
+ * Funkcja sprawdza która kryptowaluta jest wybrana i na tej podstawie aktualizuje obrazek (logo) odpowiadający tej walucie.
+ * 
+ * @function
+ * @returns {void}
+ */
+function updateLogos() {
+    switch(formCur1.value)
+    {
+        case "btc1":
+            formCur1img.src = 'images/btc-logo.png';
+            break;
+        case "eth1":
+            formCur1img.src = 'images/eth-logo.png';
+            break;
+        case "xrp1":
+            formCur1img.src = 'images/xrp-logo.png';
+            break;
+        case "opt1":
+            formCur1img.src = 'images/op-logo.png';
+            break;
+        case "ape1":
+            formCur1img.src = 'images/ape-logo.png';
+            break;
+        default:
+            formCur1img.src = 'images/btc-logo.png'; break;
+}
+
+switch(formCur2.value)
+{
+    case "btc2":
+        formCur2img.src = 'images/btc-logo.png';
+        break;
+    case "eth2":
+        formCur2img.src = 'images/eth-logo.png';
+        break;
+    case "xrp2":
+        formCur2img.src = 'images/xrp-logo.png';
+        break;
+    case "opt2":
+        formCur2img.src = 'images/op-logo.png';
+        break;
+    case "ape2":
+        formCur2img.src = 'images/ape-logo.png';
+        break;
+    
+    default:
+    formCur2img.src = 'images/btc-logo.png'; break;
+} 
+}
+
+/**
+ * Aktualizuje wartość kryptowaluty nr 1 w zależności od wybranych walut.
+ * 
+ * Funkcja oblicza nową wartość kryptowaluty nr 1 na podstawie wartości kryptowaluty 2 oraz kursów wymiany pomiędzy tymi kryptowalutami.
+ * Funkcja wykorzystuje zmienne przechowujące informacje o kursie danej kryptowaluty w przeliczeniu na USD, takie jak btcPrice, ethPrice itd. Zmienne te są aktualizowane poprzez API i reprezentują faktyczny kurs.
+ * Następnie wartość kryptowaluty nr 2 jest aktualizowana w zaokrągleniu do 4 miejsc po przecinku. 
+ * 
+ * W skrypcie jest zaimplementowana również funkcja, która analogicznie przelicza wartość kryptowaluty nr 2 na podstawie wartości kryptowaluty nr 1.
+ * 
+ * @function
+ * @returns {void}
+ */
+function updateCrypto1from() {
+    var crypto1value;
+
+    switch(formCur2.value + ',' + formCur1.value){
+        case 'btc2,eth1':
+            crypto1value = (crypto2.value*btcPrice)/ethPrice;break;
+        case 'btc2,xrp1':
+            crypto1value = (crypto2.value*btcPrice)/xrpPrice;break;
+        case 'btc2,opt1':
+            crypto1value = (crypto2.value*btcPrice)/opPrice;break;
+        case 'btc2,ape1':
+            crypto1value = (crypto2.value*btcPrice)/apePrice;break;
+        case 'eth2,btc1':
+            crypto1value = (crypto2.value*ethPrice)/btcPrice;break;
+        case 'eth2,xrp1':
+            crypto1value = (crypto2.value*ethPrice)/xrpPrice;break;
+        case 'eth2,opt1':
+            crypto1value = (crypto2.value*ethPrice)/opPrice;break;
+        case 'eth2,ape1':
+            crypto1value = (crypto2.value*ethPrice)/apePrice;break;
+        case 'xrp2,btc1':
+            crypto1value = (crypto2.value*xrpPrice)/btcPrice;break;
+        case 'xrp2,eth1':
+            crypto1value = (crypto2.value*xrpPrice)/ethPrice;break;
+        case 'xrp2,opt1':
+            crypto1value = (crypto2.value*xrpPrice)/opPrice;break;
+        case 'xrp2,ape1':
+            crypto1value = (crypto2.value*xrpPrice)/apePrice;break;
+        case 'opt2,btc1':
+            crypto1value = (crypto2.value*opPrice)/btcPrice;break;
+        case 'opt2,eth1':
+            crypto1value = (crypto2.value*opPrice)/ethPrice;break;
+        case 'opt2,xrp1':
+            crypto1value = (crypto2.value*opPrice)/xrpPrice;break;
+        case 'opt2,ape1':
+            crypto1value = (crypto2.value*opPrice)/apePrice;break;
+        case 'ape2,btc1':
+            crypto1value = (crypto2.value*apePrice)/btcPrice;break;
+        case 'ape2,eth1':
+            crypto1value = (crypto2.value*apePrice)/ethPrice;break;
+        case 'ape2,xrp1':
+            crypto1value = (crypto2.value*apePrice)/xrpPrice;break;
+        case 'ape2,opt1':
+            crypto1value = (crypto2.value*apePrice)/opPrice;break;
+            
+       default:
+            crypto1value = 0; break;
+    }
+
+    crypto1value = (Math.round(crypto1value * 100) / 100).toFixed(4); //round to 4 digits
+    crypto1.value = crypto1value;
+}
+
+/**
+ * Event Listener reagujący na zmianę wyboru waluty nr 2.
+ * Aktualizuje loga, wartość kryptowaluty 1 oraz blokuje opcje wyboru dla bieżących kryptowalut.
+ * Wykorzystywane są tu zaimplementowane wcześniej funkcje: updateLogos(), updateCrypto1from(), blockCurrentCrypto()
+ * 
+ * W skrypcie istnieje również Event Listener reagujący równoważnie na zmianę wyboru kryptowaluty nr 1.
+ * 
+ * @event
+ */
+formCur2.addEventListener('change', function formCur2update() {
+    updateLogos();
+    updateCrypto1from();
+    blockCurrentCrypto();
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#blockCurrentCrypto">blockCurrentCrypto</a></li><li><a href="global.html#crypto1">crypto1</a></li><li><a href="global.html#crypto2">crypto2</a></li><li><a href="global.html#formCur1">formCur1</a></li><li><a href="global.html#formCur2">formCur2</a></li><li><a href="global.html#updateCrypto1from">updateCrypto1from</a></li><li><a href="global.html#updateLogos">updateLogos</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Feb 02 2024 21:47:43 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

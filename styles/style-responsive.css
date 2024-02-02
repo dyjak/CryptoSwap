@@ -1,0 +1,174 @@
+
+h1, h2, h3, h4, h5, h6, img, input, label, figure {
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    width: 90%;
+    margin: 10px;
+  }
+  
+
+
+  @media only screen and (max-width: 768px) {
+    input[type=number] {
+      width: 100%;
+      font-size: large;
+    }
+  
+    select {
+      width: 100%;
+      font-size: small;
+      margin: 10px 0;
+      font-size: large;
+    }
+  
+    button {
+      width: 100%;
+      font-size: small;
+      margin-top: 10px;
+    }
+  
+    .mybalance-box{
+      flex-direction: column;
+    }
+
+    #myBalanceTotal{
+      display: none;
+    }
+
+    .mybalance-box span, #your-balance span, aside {
+      font-size: x-small;
+    }
+  
+    #transfer-logo {
+      font-size: 45px;
+    }
+  
+    body {
+      background-size: 600%;
+      transition: 1s;
+    }
+
+    nav a{
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      font-size: medium;
+    }
+
+    #header{
+      flex-direction: column;
+      height: 20%;
+    }
+    #head-logo, nav{
+      height: 50%;
+      width: 100%;
+    }
+  
+    .crypto-form-choice {
+      width: 80%;
+    }
+  
+    #transfer-logo{
+      font-size: 130px;
+    }
+
+    aside{
+      width: 0%;
+      height: 0%;
+      display: none;
+    }
+    aside div{
+      display: none;
+      font-size: 0px;
+    }
+    aside div p, aside div span{
+      font-size: 0px;
+    }
+  
+    main {
+      width: 100%;
+      height: 70%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #submit{
+      width: 80%;
+      font-size: xx-large;
+    }
+
+    #main-area, #crypto-form{
+      width: 100%;
+    }
+  
+    #crypto-form-header{
+      height: 10%;
+    }
+
+    #main-area{
+      height: 100%;
+    }
+
+    #crypto-form-input {
+      flex-direction: column;
+    }
+
+    .support-info{
+      align-items: center;
+      text-align: center;
+      width:100%;
+      display: flex;
+      flex-direction: column;
+      font-size: 80%;
+  }
+  }
+  
+  @media only screen and (min-width: 769px) and (max-width: 1200px) {
+    input[type=number] {
+      width: 30%;
+      font-size: large;
+    }
+  
+    select {
+      width: 25%;
+      font-size: medium;
+      margin: 30px 0;
+    }
+  
+    button {
+      width: 20%;
+      font-size: medium;
+    }
+
+    .mybalance-box span,  #your-balance span, asid{
+        font-size: small;
+    }
+  }
+  
+
+  @media only screen and (min-width: 1201px) {
+    input[type=number] {
+      width: 20%;
+      font-size: large;
+    }
+  
+
+  
+    button {
+      width: 15%;
+      font-size: large;
+      margin-top: 20px;
+    }
+  }
+  
+  .options {
+    text-align: center;
+    border: 1px solid black;
+    font-size: x-large;
+  }
+
+  
+  

@@ -1,0 +1,224 @@
+/*
+HEADING ELEMENTS AND MEDIA ELEMENTS
+
+Resetowanie marginesów i paddingów dla nagłówków, obrazków, inputów, etykiet, figur itp.
+
+Styleguide 4.1.0
+*/
+h1, h2, h3, h4, h5, h6, img, input, label, figure {
+  margin: 0;
+  padding: 0;
+}
+
+/*
+IMAGE STYLES
+
+Ustawienia szerokości i marginesu dla obrazków
+- Szerokość: 90%
+- Margines: 10px
+
+Styleguide 4.1.1
+*/
+img {
+  width: 90%;
+  margin: 10px;
+}
+
+/*
+RESPONSIVE STYLES
+
+Media queries dla ekranów o szerokości do 768px
+- Dostosowanie input[type=number], select, button do pełnej szerokości
+- Zmiana rozmiaru fontu dla niektórych elementów
+- Ukrycie #myBalanceTotal
+- Zmiana układu flex-direction dla .mybalance-box
+- Zmiana rozmiaru fontu dla wybranych elementów
+- Zmiana background-size dla body z efektem przejścia
+- Dostosowanie stylu dla nawigacji i #header
+- Ukrycie aside i zmiana rozmiaru main
+
+Styleguide 4.1.2
+*/
+@media only screen and (max-width: 768px) {
+  input[type=number] {
+      width: 100%;
+      font-size: large;
+  }
+
+  select {
+      width: 100%;
+      font-size: large;
+      margin: 10px 0;
+  }
+
+  button {
+      width: 100%;
+      font-size: small;
+      margin-top: 10px;
+  }
+
+  .mybalance-box {
+      flex-direction: column;
+  }
+
+  #myBalanceTotal {
+      display: none;
+  }
+
+  .mybalance-box span, #your-balance span, aside {
+      font-size: x-small;
+  }
+
+  #transfer-logo {
+      font-size: 45px;
+  }
+
+  body {
+      background-size: 600%;
+      transition: 1s;
+  }
+
+  nav a {
+      padding: 0;
+      margin: 0;
+      text-decoration: none;
+      font-size: medium;
+  }
+
+  #header {
+      flex-direction: column;
+      height: 20%;
+  }
+
+  #head-logo, nav {
+      height: 50%;
+      width: 100%;
+  }
+
+  .crypto-form-choice {
+      width: 80%;
+  }
+
+  #transfer-logo {
+      font-size: 130px;
+  }
+
+  aside {
+      width: 0%;
+      height: 0%;
+      display: none;
+  }
+
+  aside div {
+      display: none;
+      font-size: 0px;
+  }
+
+  aside div p, aside div span {
+      font-size: 0px;
+  }
+
+  main {
+      width: 100%;
+      height: 70%;
+      justify-content: center;
+      align-items: center;
+  }
+
+  #submit {
+      width: 80%;
+      font-size: xx-large;
+  }
+
+  #main-area, #crypto-form {
+      width: 100%;
+  }
+
+  #crypto-form-header {
+      height: 10%;
+  }
+
+  #main-area {
+      height: 100%;
+  }
+
+  #crypto-form-input {
+      flex-direction: column;
+  }
+
+  .support-info {
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      font-size: 80%;
+  }
+}
+
+/*
+MEDIA QUERIES FOR MEDIUM SCREENS
+
+Dostosowanie input[type=number], select, button do odpowiednich szerokości na ekranach o szerokości od 769px do 1200px
+- Zmiana rozmiaru fontu dla niektórych elementów
+
+Styleguide 4.1.3
+*/
+@media only screen and (min-width: 769px) and (max-width: 1200px) {
+  input[type=number] {
+      width: 30%;
+      font-size: large;
+  }
+
+  select {
+      width: 25%;
+      font-size: medium;
+      margin: 30px 0;
+  }
+
+  button {
+      width: 20%;
+      font-size: medium;
+  }
+
+  .mybalance-box span, #your-balance span, asid{
+      font-size: small;
+  }
+}
+
+/*
+MEDIA QUERIES FOR LARGE SCREENS
+
+Dostosowanie input[type=number] i button do odpowiednich szerokości na ekranach o szerokości powyżej 1200px
+- Zmiana rozmiaru fontu dla niektórych elementów
+
+Styleguide 4.1.4
+*/
+@media only screen and (min-width: 1201px) {
+  input[type=number] {
+      width: 20%;
+      font-size: large;
+  }
+
+  button {
+      width: 15%;
+      font-size: large;
+      margin-top: 20px;
+  }
+}
+
+/*
+OPTIONS STYLES
+
+Stylizacja dla elementu o klasie .options
+- Wyśrodkowanie tekstu
+- Grubość obramowania
+- Rozmiar fontu: x-large
+
+Styleguide 4.1.5
+*/
+.options {
+  text-align: center;
+  border: 1px solid black;
+  font-size: x-large;
+}

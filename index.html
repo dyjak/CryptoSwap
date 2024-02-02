@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoSwap</title>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/style-input.css">
+    <link rel="stylesheet" href="styles/style-responsive.css">
+</head>
+<body>
+
+    <header id="header" class="flex1">
+        <div id="head-logo" class="flex1">
+            <img src="images/logo.png"  alt="logo">
+        </div>
+        <nav class="flex2">
+            <a href="index.html">Home</a>
+            <a href="leaderboard.html">Leaderboard</a>
+            <a href="support.html">Support</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="your-balance" class="flex1">
+            <div id="myBalanceTotal" style="width : 25%" class="mybalance-box flex1"> <span id="balanceTotal"></span></div>
+            <div class="mybalance-box flex1"><span id="balanceBTC"></span>
+                <img class="curImg" src="images/btc-logo.png" alt="Cryptocurrency logo">
+            </div>
+            <div class="mybalance-box flex1"><span id="balanceETH"></span> 
+                <img class="curImg" src="images/eth-logo.png" alt="Cryptocurrency logo">
+            </div>
+            <div class="mybalance-box flex1"><span id="balanceXRP"></span> 
+                <img class="curImg" src="images/xrp-logo.png" alt="Cryptocurrency logo">
+            </div>
+            <div class="mybalance-box flex1"><span id="balanceOP"></span> 
+                <img class="curImg" src="images/op-logo.png" alt="Cryptocurrency logo">
+            </div>
+            <div class="mybalance-box flex1"><span id="balanceAPE"></span> 
+                <img class="curImg" src="images/ape-logo.png" alt="Cryptocurrency logo">
+            </div>
+        </section>
+        <section id="main-area">
+            <section id="crypto-form" class="flex1">
+                    <form id= "crypto-form-c" action="" method="get">
+                        <header id="crypto-form-header">
+                        </header>
+                        <figure id="crypto-form-input" class="flex1">
+                            <div id="crypto-from" class="crypto-form-choice flex1">
+                                <img id="curImg1" src="images/btc-logo.png" alt="Cryptocurrency logo">
+                                <select name="cur1">
+                                    <option value="btc1" class="options" selected="selected" disabled="true">BTC</option>
+                                    <option value="eth1" class="options" disabled="true">ETH</option>
+                                    <option value="xrp1" class="options">XRP</option>
+                                    <option value="opt1" class="options">OP</option>
+                                    <option value="ape1" class="options">APE</option>
+                                </select>
+                                  <input type="number" name="crypto-from-value" min="0" max="" value="0.0000" step="any">
+                            </div>
+                            <div id="transfer-img" class="crypto-form-choice flex1">
+                                <p id="transfer-logo" onclick="changeSides()">⬍</p>
+                            </div>
+                            <div id="crypto-to" class="crypto-form-choice flex1">
+                                <img id="curImg2" src="images/eth-logo.png" alt="Cryptocurrency logo">
+                                <select name="cur2">
+                                    <option value="btc2" class="options" disabled="true">BTC</option>
+                                    <option value="eth2" class="options" selected="selected" disabled="true">ETH</option>
+                                    <option value="xrp2" class="options">XRP</option>
+                                    <option value="opt2" class="options">OP</option>
+                                    <option value="ape2" class="options">APE</option>
+                                </select>
+                                <input type="number" name="crypto-to-value" min="0" max="" value="0.0000" step="any">
+                            </div>
+                        </figure>
+                        <figure id="crypto-form-submit" class="flex2">
+                            <div id="crypto-form-submit-box">
+                                <input type="checkbox" id="agreement" name="agreement" style="box-shadow:none">
+                                <label for="agreement">Accept rules</label>
+                            </div>
+                            <button id="submit">Exchange</button>
+                        </figure>
+                        <footer id="crypto-form-footer" class="flex1">
+                            <h2 id="error"></h2>
+                        </footer>
+                    </form>
+                </section>
+            <aside class="flex3">
+                <!-- <div class="flex3" style="background-color: rgba(0,0,0,0); border: 0"></div> -->
+                <div class="flex3"><p>B T C </p><span id="btcPrice"></span></div>
+                <div class="flex3"><p>E T H </p><span id="ethPrice"></span></div>
+                <div class="flex3"><p>X R P</p><span id="xrpPrice"></span></div>
+                <div class="flex3"><p>O P</p><span id="opPrice"></span></div>
+                <div class="flex3"><p>A P E</p><span id="apePrice"></span></div>
+
+                <!-- <canvas id="cryptoChart" width="200" height="200"></canvas> -->
+                <!-- <p id="DEBUG">DEBUG</p>
+                <p><code>pageX</code>: <span id="x">n/a</span></p>
+                <p><code>pageY</code>: <span id="y">n/a</span></p> -->
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        <span>Autor: Michal Dyjak</span>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="scripts/crypto.js"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/effects.js"></script>
+    <script src="scripts/charts.js"></script>
+</body>
+</html>

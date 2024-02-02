@@ -1,0 +1,200 @@
+/*
+HEADER ELEMENTS
+
+Resetowanie marginesów i paddingów dla nagłówków, obrazków, inputów, labeli i figur
+
+Styleguide 2.1.1
+*/
+h1,h2,h3,h4,h5,h6,img,input,label,figure{
+    margin:0;
+    padding:0;
+}
+
+/*
+IMAGE STYLES
+
+Ustawienie szerokości obrazków na 90%
+
+Styleguide 2.1.2
+*/
+img{
+    width: 90%;
+}
+
+/*
+NUMBER INPUT STYLES
+
+Ustawienie szerokości na 20%, czcionki na dużą, paddingu, i zaokrąglenia rogów
+
+Styleguide 2.1.3
+*/
+input[type=number]{
+    width:20%;
+    font-size: large;
+    padding: 10px;
+    text-align: right;
+
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+/*
+SELECT STYLES
+
+Ustawienie szerokości na 17%, czcionki na średnią, paddingu, obrazka tła, i zaokrąglenia rogów
+
+Styleguide 2.1.4
+*/
+select{
+    width:17%;
+    font-size: medium;
+    padding: 10px;
+    padding-right: 30px;
+    margin:30px;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23131313%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.7rem top 50%;
+    background-size: 0.65rem auto;
+
+    border-top-right-radius: 30px;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+/*
+OPTIONS CLASS STYLES
+
+Wyśrodkowanie tekstu, obramowanie i ustawienie rozmiaru czcionki na bardzo dużą
+
+Styleguide 2.1.5
+*/
+.options{
+    text-align: center;
+    border: 1px solid black;
+    font-size: x-large;
+}
+
+/*
+BUTTON STYLES
+
+Ustawienie szerokości na 15%, wysokości na 50%, czcionki na bardzo dużą, wyśrodkowanie tekstu i zaokrąglenie rogów
+
+Styleguide 2.1.6
+*/
+button{
+    width:15%;
+    height: 50%;
+    font-size: xx-large;
+    text-align: center;
+
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+/*
+BUTTON HOVER STYLES
+
+Zmiana zaokrąglenia rogów przy najechaniu myszką
+
+Styleguide 2.1.7
+*/
+button:hover{
+    border-top-right-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+}
+
+/*
+COMMON STYLES
+
+Ustawienie czcionki, obramowania, cieni i tła dla inputów, selectów i buttonów
+
+Styleguide 2.1.8
+*/
+input,select,button{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid rgb(0, 54, 0);
+    background-clip: padding-box;
+    box-shadow: 0 10px 20px rgba(120, 223, 137,0.3), inset 0 0 9px rgb(125, 177, 245);
+}
+
+/*
+HOVER STYLES
+
+Zmiana cieni, skali i czasu trwania dla hover dla inputów, selectów, buttonów oraz linków
+
+Styleguide 2.1.9
+*/
+input:hover,select:hover,button:hover{
+    box-shadow:5px 8px 35px rgb(153, 250, 153);
+    transform:scaleX(1.2) scaleY(1.2);
+    transition: 1s;
+    z-index: 10;
+}
+
+/*
+NOT HOVER STYLES
+
+Długotrwała zmiana dla elementów input, select i button, gdy nie są najechane
+
+Styleguide 2.1.10
+*/
+input:not(hover),select:not(hover),button:not(hover){
+    transition: 1s;
+}
+
+/*
+LINK HOVER STYLES
+
+Zmiana skali przy najechaniu myszką na link
+
+Styleguide 2.1.11
+*/
+a:hover{
+    transform: scale(1.3);
+    transition: 1s;
+}
+
+/*
+LOGO HOVER STYLES
+
+Zmiana rotacji i skali przy najechaniu myszką na element o id "transfer-logo"
+
+Styleguide 2.1.12
+*/
+#transfer-logo:hover{
+    transform: rotate(540deg) scale(1.5);
+    transition: 0.7s;
+}
+
+/*
+LOGO NOT HOVER STYLES
+
+Resetowanie rotacji i skali, gdy element o id "transfer-logo" nie jest najechany
+
+Styleguide 2.1.13
+*/
+#transfer-logo:not(hover){
+    transform: rotate(0deg);
+    transition: 1s;
+}
+
+/*
+NUMBER INPUT SPIN BUTTON STYLES
+
+Ukrycie przycisków do zwiększania i zmniejszania wartości dla elementu input typu "number"
+
+Styleguide 2.1.14
+*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

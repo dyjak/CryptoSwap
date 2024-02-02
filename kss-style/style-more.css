@@ -1,0 +1,85 @@
+/*
+NAGŁÓWEK POZIOMU 1
+
+Ustawia kolor tekstu na biały i wyśrodkowuje go.
+
+Styleguide 3.1.1
+*/
+h1 {
+    color: #ffffff;
+    text-align: center;
+}
+
+/*
+TABELA
+
+Ustawia szerokość na 80%, eliminuje odstępy między komórkami tabeli.
+
+Styleguide 3.1.2
+*/
+table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+/*
+SEKCJA NAGŁÓWKA TABELI
+
+Ustawia kolor tła na #333, kolor tekstu na biały.
+
+Styleguide 3.1.3
+*/
+thead {
+    background-color: #333;
+    color: #fff;
+}
+
+/*
+KOMÓRKI NAGŁÓWKA I TREŚCI TABELI
+
+Ustawia padding, wyśrodkowuje tekst, dodaje dolną krawędź z cienką linią.
+
+Styleguide 3.1.4
+*/
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+/*
+PODŚWIETLENIE WIERSZA NA HOVERZE
+
+Zmienia kolor tła na #555 podczas najechania kursorem.
+
+Styleguide 3.1.5
+*/
+tr:hover {
+    background-color: #555;
+}
+
+/*
+KONTENER "SUPPORT-INFO"
+
+Ustawia elementy w kolumnie, wyśrodkowuje je i zajmuje 100% szerokości.
+
+Styleguide 3.1.6
+*/
+.support-info {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/*
+TEKST W KONTENERZE "SUPPORT-INFO"
+
+Ustawia szerokość na 80%.
+
+Styleguide 3.1.7
+*/
+.support-info p {
+    width: 80%;
+}

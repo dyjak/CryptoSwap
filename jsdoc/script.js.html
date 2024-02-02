@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: script.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: script.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Element HTML reprezentujący pole debugowania.
+ * @type {HTMLElement}
+ */
+var debug = document.getElementById('DEBUG');
+
+/**
+ * Elementy HTML reprezentujące pola wyboru kryptowalut w formularzu.
+ * @type {HTMLSelectElement}
+ */
+var formCur1 = document.querySelector('select[name="cur1"]');
+var formCur2 = document.querySelector('select[name="cur2"]');
+var formCur1img = document.getElementById('curImg1');
+var formCur2img = document.getElementById('curImg2');
+
+/**
+ * Elementy HTML reprezentujące pola wprowadzania ilości kryptowalut w formularzu.
+ * @type {HTMLInputElement}
+ */
+var crypto1 = document.querySelector('input[name="crypto-from-value"]');
+var crypto2 = document.querySelector('input[name="crypto-to-value"]');
+
+/**
+ * Element HTML reprezentujący strzałkę w formularzu.
+ * @type {HTMLElement}
+ */
+var arrow = document.getElementById('transfer-img');
+
+/**
+ * Nasłuchiwanie na zmiany w pierwszym polu wyboru kryptowaluty w formularzu.
+ */
+formCur1.addEventListener('change', function formCur1update() {
+    updateLogos();
+    updateCrypto2from();
+    blockCurrentCrypto();
+});
+
+/**
+ * Nasłuchiwanie na zmiany w drugim polu wyboru kryptowaluty w formularzu.
+ */
+formCur2.addEventListener('change', function formCur2update() {
+    updateLogos();
+    updateCrypto1from();
+    blockCurrentCrypto();
+});
+
+/**
+ * Funkcja zamieniająca miejscami wartości pól wprowadzania kryptowalut i ich symboli.
+ */
+function changeSides() {
+    var tempValue;
+
+    tempValue = crypto1.value;
+    crypto1.value = crypto2.value;
+    crypto2.value = tempValue;
+
+    tempValue = formCur1.value.substring(0, 3) + "2";
+    formCur1.value = formCur2.value.substring(0, 3) + "1";
+    formCur2.value = tempValue;
+
+    updateLogos();
+
+    debug.innerHTML = crypto1.value + crypto2.value;
+}
+
+/**
+ * Nasłuchiwanie na zmiany w pierwszym polu wprowadzania kryptowaluty.
+ */
+crypto1.addEventListener('change', function () {
+    updateCrypto2from();
+    crypto1.value = (Math.round(crypto1.value * 100) / 100).toFixed(4);
+});
+
+/**
+ * Nasłuchiwanie na zmiany w drugim polu wprowadzania kryptowaluty.
+ */
+crypto2.addEventListener('change', function () {
+    updateCrypto1from();
+    crypto2.value = (Math.round(crypto2.value * 100) / 100).toFixed(4);
+});
+
+/**
+ * Funkcja aktualizująca ilość kryptowaluty w drugim polu na podstawie wyboru w pierwszym polu.
+ */
+function updateCrypto2from() {
+    // ...
+}
+
+/**
+ * Funkcja aktualizująca ilość kryptowaluty w pierwszym polu na podstawie wyboru w drugim polu.
+ */
+function updateCrypto1from() {
+    // ...
+}
+
+/**
+ * Funkcja blokująca wybór aktualnie wybranej kryptowaluty w drugim polu.
+ */
+function blockCurrentCrypto() {
+    // ...
+}
+
+/**
+ * Funkcja aktualizująca obrazy kryptowalut w formularzu na podstawie wybranych symboli.
+ */
+function updateLogos() {
+    // ...
+}
+
+/**
+ * Nasłuchiwanie na zdarzenie "blur" w polu wprowadzania kryptowaluty 1.
+ */
+crypto1.addEventListener('blur', function () {
+    if (crypto1.value.includes('.') &amp;&amp; crypto1.value.split('.')[1].length > 4) {
+        crypto1.value = parseFloat(crypto1.value).toFixed(4);
+    }
+});
+
+/**
+ * Nasłuchiwanie na zdarzenie "blur" w polu wprowadzania kryptowaluty 2.
+ */
+crypto2.addEventListener('blur', function () {
+    if (crypto2.value.includes('.') &amp;&amp; crypto2.value.split('.')[1].length > 4) {
+        crypto2.value = parseFloat(crypto2.value).toFixed(4);
+    }
+});</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#arrow">arrow</a></li><li><a href="global.html#blockCurrentCrypto">blockCurrentCrypto</a></li><li><a href="global.html#box">box</a></li><li><a href="global.html#btcPrice">btcPrice</a></li><li><a href="global.html#buttonExchange">buttonExchange</a></li><li><a href="global.html#changeSides">changeSides</a></li><li><a href="global.html#checkIfAvailible">checkIfAvailible</a></li><li><a href="global.html#crypto1">crypto1</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#formCur1">formCur1</a></li><li><a href="global.html#inputItems">inputItems</a></li><li><a href="global.html#myBalanceBTC">myBalanceBTC</a></li><li><a href="global.html#mybalance">mybalance</a></li><li><a href="global.html#pageX">pageX</a></li><li><a href="global.html#pageY">pageY</a></li><li><a href="global.html#resetToDefault">resetToDefault</a></li><li><a href="global.html#updateBalances">updateBalances</a></li><li><a href="global.html#updateCrypto1from">updateCrypto1from</a></li><li><a href="global.html#updateCrypto2from">updateCrypto2from</a></li><li><a href="global.html#updateCryptoPrices">updateCryptoPrices</a></li><li><a href="global.html#updateDisplay">updateDisplay</a></li><li><a href="global.html#updateLogos">updateLogos</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Jan 29 2024 02:22:22 GMT+0100 (czas środkowoeuropejski standardowy)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
