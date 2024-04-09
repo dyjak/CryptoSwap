@@ -1,2 +1,2 @@
 # CryptoSwap
-![ss](Screenshot_1.png)
+![ss](Screenshot_2.png)
